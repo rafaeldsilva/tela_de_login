@@ -11,12 +11,14 @@ export function FormLogin({
   labelPin = "Pin",
   labelSenha = "Senha",
   visibilidade = true,
-  visibilidadeDoForm = true,
+  visibilidadeDoForm = {},
+  repitaASenha = "Repita a senha",
 }) {
   return (
     <_Component className={_utils.cx(_styles, "form-login-block")} tag="div">
-      {visibilidadeDoForm ? (<_Builtin.FormWrapper
+      <_Builtin.FormWrapper
         className={_utils.cx(_styles, "form-block")}
+        {...visibilidadeDoForm}
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading")} tag="h1">
           {heading}
@@ -81,6 +83,23 @@ export function FormLogin({
             required={true}
             id="email-2"
           />
+          <_Builtin.FormBlockLabel
+            className={_utils.cx(_styles, "field-label")}
+            htmlFor="email-2"
+          >
+            {repitaASenha}
+          </_Builtin.FormBlockLabel>
+          <_Builtin.FormTextInput
+            className={_utils.cx(_styles, "field")}
+            autoFocus={false}
+            maxLength={256}
+            name="email-2"
+            data-name="Email 2"
+            type="password"
+            disabled={false}
+            required={true}
+            id="email-2"
+          />
           <_Builtin.FormButton
             className={_utils.cx(_styles, "button")}
             type="submit"
@@ -99,9 +118,7 @@ export function FormLogin({
             {"Oops! Something went wrong while submitting the form."}
           </_Builtin.Block>
         </_Builtin.FormErrorMessage>
-      </_Builtin.FormWrapper>) :
-      null}
-      
+      </_Builtin.FormWrapper>
     </_Component>
   );
 }
