@@ -11,13 +11,12 @@ export function FormLogin({
   labelPin = "Pin",
   labelSenha = "Senha",
   visibilidade = true,
-  visibilidadeDoForm = {},
+  visibilidadeDoForm = true,
 }) {
   return (
     <_Component className={_utils.cx(_styles, "form-login-block")} tag="div">
-      <_Builtin.FormWrapper
+      {visibilidadeDoForm ? (<_Builtin.FormWrapper
         className={_utils.cx(_styles, "form-block")}
-        {...visibilidadeDoForm}
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading")} tag="h1">
           {heading}
@@ -100,7 +99,9 @@ export function FormLogin({
             {"Oops! Something went wrong while submitting the form."}
           </_Builtin.Block>
         </_Builtin.FormErrorMessage>
-      </_Builtin.FormWrapper>
+      </_Builtin.FormWrapper>) :
+      null}
+      
     </_Component>
   );
 }
