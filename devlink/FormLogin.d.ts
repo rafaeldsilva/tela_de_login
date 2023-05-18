@@ -10,4 +10,5 @@ declare function FormLogin(props: {
   labelSenha?: React.ReactNode;
   visibilidade?: Types.Visibility.VisibilityConditions;
   visibilidadeDoForm?: Types.Devlink.RuntimeProps;
+  repitaASenha?: React.ReactNode;
 }): React.JSX.Element;
